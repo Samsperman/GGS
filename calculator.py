@@ -28,7 +28,7 @@ def calculate(stroka):
             stroka = stroka[0:i - 1] + b + stroka[i + 2:]
             i-=1
         elif stroka[i]=='^' :
-            elif stroka[i-1] == 'sin':
+            if stroka[i-1] == 'sin':
                 b = [str((sin(float(stroka[i + 2])))**float(stroka[i+1]))]
                 stroka = stroka[0:i-1] + b + stroka[i + 3:]
                 i-=1

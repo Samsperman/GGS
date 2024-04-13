@@ -28,19 +28,19 @@ def calculate(stroka):
             stroka = stroka[0:i - 1] + b + stroka[i + 2:]
             i-=1
         elif stroka[i]=='^' :
-            if stroka[i-1] == 'sin':
+            elif stroka[i-1] == 'sin':
                 b = [str((sin(float(stroka[i + 2])))**float(stroka[i+1]))]
                 stroka = stroka[0:i-1] + b + stroka[i + 3:]
                 i-=1
-            if stroka[i-1] == 'cos':
+            elif stroka[i-1] == 'cos':
                 b = [str((cos(float(stroka[i + 2])))**float(stroka[i+1]))]
                 stroka = stroka[0:i-1] + b + stroka[i + 3:]
                 i-=1
-            if stroka[i-1] == 'tg':
+            elif stroka[i-1] == 'tg':
                 b = [str((tg(float(stroka[i + 2])))**float(stroka[i+1]))]
                 stroka = stroka[0:i-1] + b + stroka[i + 3:]
                 i-=1
-            if stroka[i-1] == 'ctg':
+            elif stroka[i-1] == 'ctg':
                 b = [str((sin(float(stroka[i + 2])))**float(stroka[i+1])*(-1))]
                 stroka = stroka[0:i-1] + b + stroka[i + 3:]
                 i-=1
@@ -54,23 +54,23 @@ def calculate(stroka):
             b = [str((round(ln(float(stroka[i + 1])),5)))]
             stroka = stroka[0:i] + b + stroka[i + 2:]
             i-=1
-        if stroka[i] == 'lg':
+        elif stroka[i] == 'lg':
             b = [str((round(lg(float(stroka[i + 1])),5)))]
             stroka = stroka[0:i] + b + stroka[i + 2:]
             i-=1
-        if stroka[i] == 'sin':
+        elif stroka[i] == 'sin':
             b = [str((round(sin(float(stroka[i + 1])),5)))]
             stroka = stroka[0:i] + b + stroka[i + 2:]
             i-=1
-        if stroka[i] == 'cos':
+        elif stroka[i] == 'cos':
             b = [str((round(cos(float(stroka[i + 1])),5)))]
             stroka = stroka[0:i] + b + stroka[i + 2:]
             i-=1
-        if stroka[i] == 'tg':
+        elif stroka[i] == 'tg':
             b = [str((round(tg(float(stroka[i + 1])),5)))]
             stroka = stroka[0:i] + b + stroka[i + 2:]
             i-=1
-        if stroka[i] == 'ctg':
+        elif stroka[i] == 'ctg':
             b = [str((round((tg(float(stroka[i + 1])))**(-1),5)))]
             stroka = stroka[0:i] + b + stroka[i + 2:]
             i-=1
@@ -118,7 +118,7 @@ def scobbki(stroka):
         if stroka[i] == '(':
             nach = i
             kolvo_scobok += 1
-        if stroka[i] == ')':
+        elif stroka[i] == ')':
             kon = i
             break
     if kolvo_scobok > 0:

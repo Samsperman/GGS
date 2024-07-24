@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Dash.css') }}">
+    <title>Дэшборд</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logoCrop.jpg') }}" alt="Логотип">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('dash', id=current_user.id) }}">Дэшборд</a></li>
+                <li><a href="{{ url_for('tasks', id=current_user.id) }}">Задачи</a></li>
+                <li><a href="{{ url_for('cal', id=current_user.id) }}">Календарь</a></li>
+                <li><a href="{{ url_for('logout') }}">Выйти</a></li>
+                <li><a href="#" onclick="openSettings()">Настройки</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="overlay">
+            <div class = "background">
+                <h1>Здравствуйте!</h1>
+            </div>
+            <div class="box">
+                <div class="task-form">
+                    <span class="close-btn" onclick="closeTaskForm()">×</span>
+                    <h1>Ваши последние добавленные задачи:</h1>
+                    <div class="latest-tasks"></div>
+                </div>
+                <div class="task-form">
+                    <h1>Задачи на сегодня:</h1>
+                    <div class="today-tasks"></div>
+                </div>
+            </div>
+        </div>
+		<div class="overlaySet" id="settingsOverlay">
+	<div class="settings-form">
+        <span class="close-btn" onclick="closeSettings()">×</span>
+        <h2>Настройки</h2>
+        <label for="toggleCheckbox">Светлая тема:</label>
+        <div id="themeToggle">
+			<label class="checkbox-ios">
+				<input type="checkbox" id="toggleCheckbox">
+				<span class="checkbox-ios-switch"></span>
+			</label>
+			<label for="toggleCheckbox"></label>
+		</div>
+            <label for="toggleCheckbox"></label>
+    </div>
+	</div>
+
+
+    </main>
+
+
+
+
+
+    <script src="{{ url_for('static', filename='js/Dash.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+    <title>Календарь</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logoCrop.jpg') }}" alt="Логотип">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('dash', id=current_user.id) }}">Дэшборд</a></li>
+                <li><a href="{{ url_for('tasks', id=current_user.id) }}">Задачи</a></li>
+                <li><a href="{{ url_for('cal', id=current_user.id) }}">Календарь</a></li>
+                <li><a href="{{ url_for('logout') }}">Выйти</a></li>
+                <li><a href="#" onclick="openSettings()">Настройки</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-section background">
+        <div class="background">
+            <h1>Календарь</h1>
+        </div>
+    </div>
+
+    <main>
+        <div class="calendar">
+            <div class="header">
+                <button class="prev-month" onclick="prevMonth()">&lt;</button>
+                <h2 class="current-month">Месяц</h2>
+                <button class="next-month" onclick="nextMonth()">&gt;</button>
+            </div>
+
+            <div class="days">
+                <div class="day" data-day="1"></div>
+            </div>
+        </div>
+    </main>
+
+    <div class="task-details-overlay">
+        <div class="task-details">
+            <h3 id="details-title"></h3>
+            <p id="details-description"></p>
+            <p id="details-deadline"></p>
+            <button onclick="closeTaskDetails()">Закрыть</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="settingsOverlay">
+        <div class="task-form">
+            <span class="close-btn" onclick="closeSettings()">×</span>
+            <h2>Настройки</h2>
+            <label for="toggleCheckbox">Светлая тема:</label>
+            <div id="themeToggle">
+                <label class="checkbox-ios">
+                    <input type="checkbox" id="toggleCheckbox">
+                    <span class="checkbox-ios-switch"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+</body>
+</html>
